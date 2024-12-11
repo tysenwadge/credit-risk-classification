@@ -1,27 +1,25 @@
-# Module 12 Report Template
+# Credit Risk Analysis Report
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+Lending companies lend assets to borrowers expecting that the borrower will repay what was lended. Credit Risk is the result of a borrower not returning an asset or paying back a loan, resulting in the lender losing money. In this challenge, I will use Machine Learning to analyze a dataset of historical lending activity from a peer-to-peer lending services company to build a model that will identify the Credit Risk of borrowers.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+The purpose of this analysis is to create a supervised machine learning model that will predict if a loan is healthy '0' or high-risk '1'. I will use logistic regression to accomplish this. The data being analyzed focuses on loan size, interest rate, borrower's income, debt-to-income ratio, number of accounts, derogatory marks, and total debt. 
 
+* Using Machine Learning, I will try to predict which loans are healthy (low-risk) or non-healthy (high-risk) based on the loan status provided. First I need to split the data into labels and features, loan status being the label and the remaining columns as the features. The data then gets split into training and test data sets. Next, a logistic regression model gets initialized since we are classifying loans as either healthy or high-risk. The model was then fit with the training data and predictions were made. Finally, I evaluated the models performance using accuracy, precision, and recall scores.  
 ## Results
 
-Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
+Description of metrics used to evaluate the models performance:
 
-* Machine Learning Model 1:
-    * Description of Model 1 Accuracy, Precision, and Recall scores.
+* Accuracy, Precision, and Recall:
+    * Accuracy: The overall accuracy of the model is 0.99, meaning that it correctly classify's or predicts 99% of instances.
+    * Precision: Healthy Loan ('0') ~ 1.00, High-Risk Loan ('1') ~ 0.84
+    * Recall: Healthy Loan ('0') ~ 0.99, High-Risk Loan ('1') ~ 0.94
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+Overall, the model is performing very well in predicting healthy loans, as seen by the precision score of 1.00, and recall score of 0.99. The high-risk loans, however, resulted in a precision score of 0.84, and recall of 0.94.
 
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+With that being said, the support test data for high-risk loans is only 619, compared to the support test data for healthy loans of 18765. The model could be improved by training it with more high-risk loans. 
 
-If you do not recommend any of the models, please justify your reasoning.
+When it comes to classifying loans, it is more important to determine and prevent high-risk scenarios as defaulting can result in a larger loss compared to potential interest to be earned. I would recommend the logisitic regression model be used as it is performing with an overall accuracy of 99%.
